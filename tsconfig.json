@@ -19,6 +19,9 @@
     "lib": [
       "es2022"
     ],
+    "types": [
+      "node"
+    ],
 
     /* Emit */
     "outDir": "./_compiled",

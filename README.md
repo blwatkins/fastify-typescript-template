@@ -2,6 +2,10 @@
 
 A template project for using [Fastify](https://fastify.dev/) with [TypeScript](https://www.typescriptlang.org/).
 
+## Resources and References
+
+The [Resources and References](./resources-and-references.md) page contains links to documentation, guides, tutorials, and other resources utilized in the development of this template project.
+
 ## License
 
 The source code of this project is licensed under the [MIT License](https://opensource.org/license/mit).

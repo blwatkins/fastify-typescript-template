@@ -1,0 +1,25 @@
+{
+  "name": "fastify-typescript-template",
+  "license": "MIT",
+  "private": true,
+  "description": "A template project for using Fastify with TypeScript.",
+  "author": {
+    "name": "Brittni Watkins",
+    "url": "https://blwatkins.github.io/"
+  },
+  "homepage": "https://github.com/blwatkins/fastify-typescript-template#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blwatkins/fastify-typescript-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blwatkins/fastify-typescript-template/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

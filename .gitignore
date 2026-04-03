@@ -3,5 +3,11 @@
 # JetBrains IDEs
 .idea/
 
+# Visual Studio Code
+.vscode/
+
 # Node.js and npm
 node_modules/
+
+# compiling, bundling, testing, and coverage output
+_compiled/

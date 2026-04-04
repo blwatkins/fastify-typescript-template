@@ -14,12 +14,12 @@
 - [Node.js](https://nodejs.org/en)
 - [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node)
 
+## Dependency Management
+- [npm](https://www.npmjs.com/)
+
 ## Versioning and Platform
 - [Git](https://git-scm.com/)
 - [GitHub](https://github.com/)
-
-## Dependency Management
-- [npm](https://www.npmjs.com/)
 
 ## Environment Management
 - [n](https://github.com/tj/n)

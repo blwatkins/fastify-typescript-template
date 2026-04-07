@@ -23,7 +23,8 @@
     "lint:js": "eslint -c eslint.config.js.mjs .",
     "lint:ts": "eslint -c eslint.config.ts.mjs .",
     "lint:all": "npm run lint:js && npm run lint:ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/main.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -34,6 +35,7 @@
     "eslint-plugin-n": "^17.24.0",
     "eslint-plugin-security": "^4.0.0",
     "globals": "^17.4.0",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.58.0"
   },

@@ -18,6 +18,12 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { fastify } from './fastify.ts';
+import Fastify, { FastifyInstance } from 'fastify';
 
-await fastify.listen({ port: 3000 });
+export const fastify: FastifyInstance = Fastify({
+    logger: true
+});
+
+fastify.get('/', function handler(): string {
+    return 'Hello, World!';
+});

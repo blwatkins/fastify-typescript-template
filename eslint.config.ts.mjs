@@ -18,39 +18,59 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/* This configuration is designed to lint all JavaScript files in the project. */
+/* This configuration is designed to lint all TypeScript files in the project. */
 
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import esX from 'eslint-plugin-es-x';
+import node from 'eslint-plugin-n';
+import security from 'eslint-plugin-security';
 import globals from 'globals';
+import tsEslint from 'typescript-eslint';
 
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
     globalIgnores([
         '_compiled/**',
-        '_dist/**'
+        '_dist/**',
+        '**/*.js',
+        '**/*.cjs',
+        '**/*.mjs',
+        '**/*.jsx'
     ]),
     {
         files: [
-            '**/*.js',
-            '**/*.mjs',
-            '**/*.cjs',
-            '**/*.jsx'
+            '**/*.ts',
+            '**/*.d.ts',
+            '**/*.mts',
+            '**/*.d.mts',
+            '**/*.cts',
+            '**/*.d.cts',
+            '**/*.tsx'
         ],
         plugins: {
+            '@stylistic': stylistic,
             'es-x': esX,
-            '@stylistic': stylistic
+            'n': node,
+            'security': security,
         },
         extends: [
             eslint.configs.recommended,
             stylistic.configs.recommended,
-            esX.configs['flat/restrict-to-es2022']
+            node.configs["flat/recommended"],
+            security.configs.recommended,
+            esX.configs['flat/restrict-to-es2022'],
+            ...tsEslint.configs.recommendedTypeChecked,
+            ...tsEslint.configs.strictTypeChecked,
+            ...tsEslint.configs.stylisticTypeChecked
         ],
         languageOptions: {
             ecmaVersion: 2022,
             sourceType: 'module',
+            parserOptions: {
+                projectService: true
+            },
             globals: {
                 ...globals.node
             }
@@ -161,7 +181,78 @@ export default defineConfig([
                 }
             ],
 
-            '@stylistic/semi': ['error', 'always']
+            '@stylistic/semi': ['error', 'always'],
+
+            /* eslint-plugin-n */
+
+            'n/no-extraneous-import': 'error',
+
+            'n/no-missing-import': 'error',
+
+            'n/no-unsupported-features/es-syntax': ['error', {
+                version: '>=20.19.0',
+                ignores: []
+            }],
+
+            'n/no-unsupported-features/node-builtins': ['error', {
+                version: '>=20.19.0',
+                ignores: []
+            }],
+
+            /* typescript-eslint */
+
+            'dot-notation': 'off',
+            '@typescript-eslint/dot-notation': 'error',
+
+            'no-array-constructor': 'off',
+            '@typescript-eslint/no-array-constructor': 'error',
+
+            'no-empty-function': 'off',
+            '@typescript-eslint/no-empty-function': ['error', {
+                allow: []
+            }],
+
+            'no-loop-func': 'off',
+            '@typescript-eslint/no-loop-func': 'error',
+
+            'no-loss-of-precision': 'off',
+            '@typescript-eslint/no-loss-of-precision': 'error',
+
+            'no-shadow': 'off',
+            '@typescript-eslint/no-shadow': 'error',
+
+            'no-unused-expressions': 'off',
+            '@typescript-eslint/no-unused-expressions': ['error', {
+                allowShortCircuit: false
+            }],
+
+            'no-unused-vars': 'off',
+            '@typescript-eslint/no-unused-vars': 'error',
+
+            'no-use-before-define': 'off',
+            '@typescript-eslint/no-use-before-define': 'error',
+
+            'no-useless-constructor': 'off',
+            '@typescript-eslint/no-useless-constructor': 'error',
+
+            '@typescript-eslint/class-literal-property-style': ['error', 'getters'],
+
+            '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+
+            '@typescript-eslint/no-explicit-any': 'error',
+
+            '@typescript-eslint/no-extraneous-class': ['error', {
+                allowStaticOnly: true
+            }],
+
+            '@typescript-eslint/no-inferrable-types': 'off',
+
+            '@typescript-eslint/prefer-for-of': 'error',
+
+            '@typescript-eslint/restrict-template-expressions': ['error', {
+                allowNumber: true,
+                allowBoolean: true
+            }]
         }
     }
 ]);

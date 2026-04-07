@@ -53,12 +53,12 @@ export default defineConfig([
             '@stylistic': stylistic,
             'es-x': esX,
             'n': node,
-            'security': security,
+            'security': security
         },
         extends: [
             eslint.configs.recommended,
             stylistic.configs.recommended,
-            node.configs["flat/recommended"],
+            node.configs['flat/recommended'],
             security.configs.recommended,
             esX.configs['flat/restrict-to-es2022'],
             ...tsEslint.configs.recommendedTypeChecked,

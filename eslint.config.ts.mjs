@@ -16,6 +16,8 @@
  * AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
  * FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * SPDX-License-Identifier: MIT
  */
 
 /* This configuration is designed to lint all TypeScript files in the project. */
@@ -120,8 +122,6 @@ export default defineConfig([
 
             'require-atomic-updates': 'error',
 
-            'require-await': 'error',
-
             'use-isnan': ['error', {
                 enforceForSwitchCase: true,
                 enforceForIndexOf: true
@@ -190,12 +190,12 @@ export default defineConfig([
             'n/no-missing-import': 'error',
 
             'n/no-unsupported-features/es-syntax': ['error', {
-                version: '>=20.19.0',
+                version: '>=22.23.0',
                 ignores: []
             }],
 
             'n/no-unsupported-features/node-builtins': ['error', {
-                version: '>=20.19.0',
+                version: '>=22.23.0',
                 ignores: []
             }],
 
@@ -235,9 +235,16 @@ export default defineConfig([
             'no-useless-constructor': 'off',
             '@typescript-eslint/no-useless-constructor': 'error',
 
+            'require-await': 'off',
+            '@typescript-eslint/require-await': 'error',
+
             '@typescript-eslint/class-literal-property-style': ['error', 'getters'],
 
             '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+
+            '@typescript-eslint/no-deprecated': 'warn',
+
+            '@typescript-eslint/no-dynamic-delete': 'error',
 
             '@typescript-eslint/no-explicit-any': 'error',
 
@@ -246,6 +253,8 @@ export default defineConfig([
             }],
 
             '@typescript-eslint/no-inferrable-types': 'off',
+
+            '@typescript-eslint/no-unsafe-member-access': 'error',
 
             '@typescript-eslint/prefer-for-of': 'error',
 

@@ -6,8 +6,11 @@
 # Visual Studio Code
 .vscode/
 
+# Claude Code
+.claude/
+
 # Node.js and npm
 node_modules/
 
-# compiling, bundling, testing, and coverage output
+# Compiling, bundling, testing, and coverage output
 _compiled/
